@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Inaccuracies - Snow Removal</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Snow Removal Service</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="stats.html">Stats</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="report.html">Report</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Report Inaccuracies</h2>
+        <form id="reportForm">
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+            
+            <label for="issue">Issue:</label>
+            <textarea id="issue" name="issue" required></textarea>
+            
+            <button type="submit">Submit Report</button>
+        </form>
+    </main>
+    <script src="../js/form.js"></script>
+</body>
+</html>
