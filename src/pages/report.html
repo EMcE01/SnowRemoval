@@ -24,9 +24,21 @@
         <form id="reportForm">
             <label for="location">Location:</label>
             <input type="text" id="location" name="location" required>
+            <span class="error-message" id="locationError"></span>
             
-            <label for="issue">Issue:</label>
-            <textarea id="issue" name="issue" required></textarea>
+            <label for="severity">Severity:</label>
+            <select id="severity" name="severity" required>
+                <option value="">--Select--</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+                <option value="unknown">Unknown</option>
+            </select>
+            <span class="error-message" id="severityError"></span>
+
+            <label for="comments">Other comments:</label>
+            <textarea id="comments" name="comments"></textarea>
+            <span class="error-message" id="commentsError"></span>
             
             <button type="submit">Submit Report</button>
         </form>

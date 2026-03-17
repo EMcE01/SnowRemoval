@@ -4,22 +4,42 @@ document.addEventListener('DOMContentLoaded', function() {
     reportForm.addEventListener('submit', function(event) {
         event.preventDefault();
 
+        // clear previous error messages
+        document.getElementById('locationError').textContent = '';
+        document.getElementById('severityError').textContent = '';
+        document.getElementById('commentsError').textContent = '';
+
         const formData = new FormData(reportForm);
         const data = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            issue: formData.get('issue'),
+            location: formData.get('location'),
+            severity: formData.get('severity'),
+            comments: formData.get('comments')
         };
 
-        if (validateForm(data)) {
+        const errors = validateForm(data);
+        if (errors.length === 0) {
             submitForm(data);
         } else {
-            alert('Please fill in all fields correctly.');
+            // show errors next to each field
+            errors.forEach(err => {
+                const span = document.getElementById(err.field + 'Error');
+                if (span) {
+                    span.textContent = err.message;
+                }
+            });
         }
     });
 
     function validateForm(data) {
-        return data.name && data.email && data.issue;
+        const errors = [];
+        if (!data.location || data.location.trim() === '') {
+            errors.push({ field: 'location', message: 'Location is required.' });
+        }
+        if (!data.severity || data.severity.trim() === '') {
+            errors.push({ field: 'severity', message: 'Please select a severity level.' });
+        }
+        // comments are optional
+        return errors;
     }
 
     function submitForm(data) {
