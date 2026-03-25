@@ -6,8 +6,6 @@ This project is a snow removal website designed for a college campus. It provide
 ## Features
 - **Home Page**: Includes a clickable map thumbnail linking to a larger navigable map, along with a stats section displaying average sidewalk clearing time and active crews.
 - **Map Page**: Displays a detailed map with snow depth and removal status indicators.
-- **Statistics Page**: Shows statistics related to snow removal efforts, including average clearing times and active crews.
-- **News Page**: Provides updates on upcoming weather and important information regarding snow removal.
 - **Report Page**: Allows users to report inaccuracies in snow removal status through a simple form.
 
 ## Author
