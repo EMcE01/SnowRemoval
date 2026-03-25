@@ -10,37 +10,36 @@ This project is a snow removal website designed for a college campus. It provide
 - **News Page**: Provides updates on upcoming weather and important information regarding snow removal.
 - **Report Page**: Allows users to report inaccuracies in snow removal status through a simple form.
 
+## Author
+- Ethan McEvoy
+
 ## Project Structure
 ```
 snow-removal-website
 ├── src
-│   ├── css
-│   │   ├── styles.css
-│   ├── js
-│   │   ├── main.js
-│   │   ├── map.js
-│   │   └── form.js
-│   ├── pages
-│   │   ├── home.html
-│   │   ├── map.html
-│   │   ├── stats.html
-│   │   ├── news.html
-│   │   └── report.html
+│   
 │   └── assets
 │       └── map-key.html
-├── index.html
+├── css
+│   │   ├── styles.css
+        ├── admin.css
+│   ├── js
+│   │   ├── admin.js
+│   │   ├── form.js
+│   │   ├── main.js
+│   │   ├── map.js
+│   │   
+│   ├── pages
+|   |   ├── index.html
+│   │   ├── home.html
+│   │   ├── admin.html
+│   │   ├── map.html
+│   │   └── report.html
 └── README.md
 ```
-
-## Setup Instructions
-1. Clone the repository to your local machine.
-2. Open the project folder in your preferred code editor.
-3. Open `index.html` in a web browser to view the website.
 
 ## Technologies Used
 - HTML
 - CSS
 - JavaScript
-
-## Contribution
-Feel free to contribute to this project by submitting issues or pull requests. Your feedback and suggestions are welcome!
+- great website for map: https://geojson.io/#map=17/42.241034/-97.0151
