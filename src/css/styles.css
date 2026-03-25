@@ -75,7 +75,9 @@ main.dashboard {
 section {
     border: #a7c3d3 solid 1px;
     margin-top: 15px;
+    padding: 15px;
     background: #fbfdff;
+    border-radius: 15px;;
 }
 
 @media (max-width: 900px) {
@@ -100,6 +102,44 @@ section {
     cursor: pointer;
     margin: 0 auto;
     text-align: center;
+}
+
+.map-key {
+    margin-top: 20px;
+    background: #f7fbff;
+    border: 1px solid #c9dbe8;
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.map-layout {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* Map takes most of the space */
+#map {
+    flex: 3;
+    height: 500px; /* IMPORTANT: Leaflet needs height */
+    border: 1px solid #a7c3d3;
+    border-radius: 8px;
+}
+
+/* Key sits on the right */
+#map-key {
+    flex: 1;
+    background: #edf4fb;
+    border: 1px solid #b7cad8;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Make iframe fill nicely */
+#map-key iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
 }
 
 .stats {
@@ -134,7 +174,7 @@ section {
     color: #2f586d;
 }
 
-.stats h2 {
+h2 {
     text-align: center;
     margin-bottom: 12px;
 }
@@ -197,3 +237,5 @@ form select,
 form textarea {
     vertical-align: top;
 }
+
+

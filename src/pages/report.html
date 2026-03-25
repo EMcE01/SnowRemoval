@@ -13,17 +13,24 @@
             <ul>
                 <li><a href="home.html">Home</a></li>
                 <li><a href="map.html">Map</a></li>
-                <li><a href="stats.html">Stats</a></li>
-                <li><a href="news.html">News</a></li>
-                <li><a href="report.html">Report</a></li>
+                <li><a href="report.html">Report Issues</a></li>
             </ul>
         </nav>
     </header>
+
     <main>
-        <h2>Report Inaccuracies</h2>
+        <h2>Report an Issue</h2>
+
+        <!-- Helpful instruction -->
+        <p><strong>Tip:</strong> Click a sidewalk on the map to auto-fill this form.</p>
+
         <form id="reportForm">
+
+            <!-- Hidden sidewalk ID -->
+            <input type="hidden" id="sidewalkId" name="sidewalkId">
+
             <label for="location">Location:</label>
-            <input type="text" id="location" name="location" required>
+            <input type="text" id="location" name="location" placeholder="Enter location or select from map" required>
             <span class="error-message" id="locationError"></span>
             
             <label for="severity">Severity:</label>
@@ -37,12 +44,13 @@
             <span class="error-message" id="severityError"></span>
 
             <label for="comments">Other comments:</label>
-            <textarea id="comments" name="comments"></textarea>
+            <textarea id="comments" name="comments" placeholder="Describe the issue..."></textarea>
             <span class="error-message" id="commentsError"></span>
             
             <button type="submit">Submit Report</button>
         </form>
     </main>
+
     <script src="../js/form.js"></script>
 </body>
 </html>

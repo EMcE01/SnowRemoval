@@ -1,3 +1,5 @@
+//https://geojson.io/#map=17/42.241034/-97.0151
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Campus Snow Removal Map</title>
     <link rel="stylesheet" href="../css/styles.css">
-    <script src="../js/map.js" defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
     <header>
@@ -14,22 +16,22 @@
             <ul>
                 <li><a href="home.html">Home</a></li>
                 <li><a href="map.html">Map</a></li>
-                <li><a href="stats.html">Stats</a></li>
-                <li><a href="news.html">News</a></li>
-                <li><a href="report.html">Report</a></li>
+                <li><a href="report.html">Report Issues</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <h2>Campus Snow Removal Map</h2>
-        <div id="map-container">
-            <!-- The map will be displayed here -->
-            <div id="map"></div>
-        </div>
+ <main>
+    <h2>Campus Snow Removal Map</h2>
+
+    <div class="map-layout">
+        <div id="map"></div>
         <div id="map-key">
             <h3>Map Key</h3>
             <iframe src="../assets/map-key.html" frameborder="0"></iframe>
         </div>
-    </main>
+    </div>
+</main>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="../js/map.js" defer></script>
 </body>
 </html>

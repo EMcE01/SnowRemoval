@@ -1,39 +1,53 @@
-// This file contains JavaScript code specific to the map functionality, including logic for displaying the map and handling user interactions with the map.
+document.addEventListener('DOMContentLoaded', function () {
 
-document.addEventListener('DOMContentLoaded', function() {
-    const mapContainer = document.getElementById('map-container');
-    const mapKey = document.getElementById('map-key');
+    // ✅ Initialize map FIRST
+    const map = L.map('map').setView([42.2428, -97.014], 16);
 
-    // Initialize the map
-    function initMap() {
-        // Example of initializing a map (using a library like Leaflet or Google Maps)
-        const map = L.map(mapContainer).setView([latitude, longitude], zoomLevel);
+    // Base map layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+        maxZoom: 19
+    }).addTo(map);
 
-        // Add a tile layer to the map
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-        }).addTo(map);
-
-        // Load snow depth and removal status data
-        loadMapData();
+    // 🎨 Color logic
+    function getColor(status) {
+        if (status === "Cleared") return "green";
+        if (status === "Light") return "yellow";
+        if (status === "moderate") return "orange";
+        if (status === "In Progress") return "blue";
+        return "red";
     }
 
-    // Load map data (this could be an API call or static data)
-    function loadMapData() {
-        // Example data structure for snow depth and removal status
-        const snowData = [
-            { location: 'Location 1', depth: '2 inches', status: 'Cleared' },
-            { location: 'Location 2', depth: '5 inches', status: 'In Progress' },
-            // Add more locations as needed
-        ];
+    // ✅ Load GeoJSON (ONLY map data now)
+    fetch('../assets/sidewalks.geojson')
+        .then(res => res.json())
+        .then(data => {
 
-        // Display the data on the map
-        snowData.forEach(data => {
-            const marker = L.marker([data.latitude, data.longitude]).addTo(map);
-            marker.bindPopup(`${data.location}: ${data.depth} - ${data.status}`);
+            L.geoJSON(data, {
+
+                style: function (feature) {
+                    return {
+                        color: getColor(feature.properties.status),
+                        weight: 5
+                    };
+                },
+
+                onEachFeature: function (feature, layer) {
+                    layer.bindPopup(
+                        feature.properties.name + " - " + feature.properties.status
+                    );
+
+                    layer.on('click', function () {
+                        const id = feature.properties.id;
+                        window.location.href = `report.html?sidewalk=${id}`;
+                    });
+                }
+
+            }).addTo(map);
+
+        })
+        .catch(err => {
+            console.error("Error loading GeoJSON:", err);
         });
-    }
 
-    // Call the initMap function to set up the map
-    initMap();
 });
