@@ -14,12 +14,13 @@ document.addEventListener('DOMContentLoaded', function () {
         if (status === "Cleared") return "green";
         if (status === "Light") return "yellow";
         if (status === "moderate") return "orange";
+        if (status === "Icy") return "lightblue";
         if (status === "In Progress") return "blue";
         return "red";
     }
 
     // ✅ Load GeoJSON (ONLY map data now)
-    fetch('../assets/sidewalks.geojson')
+    fetch('../src/assets/sidewalks.geojson')
         .then(res => res.json())
         .then(data => {
 
