@@ -1,3 +1,8 @@
+/**
+    *Author: Ethan McEvoy
+    *Date: 2024-06-01
+**/
+
 document.addEventListener('DOMContentLoaded', function () {
 
     // 🔐 Simple access control

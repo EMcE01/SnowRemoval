@@ -1,4 +1,9 @@
-// This file contains the JavaScript code for general functionality across the website, such as handling navigation and any common interactive elements.
+/**
+    *Author: Ethan McEvoy
+    *Date: 2024-06-01
+    *This file contains the JavaScript code for general functionality across the website, 
+    *such as handling navigation and any common interactive elements.
+**/ 
 
 document.addEventListener('DOMContentLoaded', function() {
     // Navigation handling
