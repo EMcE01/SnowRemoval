@@ -44,8 +44,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     );
 
                     layer.on('click', function () {
-                        const id = feature.properties.id;
-                        window.location.href = `report.html?sidewalk=${id}`;
+                        const name = feature.properties.name;
+                        window.location.href = `report.html?sidewalk=${name}`;
                     });
                 }
 

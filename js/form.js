@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const sidewalkId = params.get("sidewalk");
 
     if (sidewalkId !== null) {
-        document.getElementById("location").value = "Sidewalk #" + sidewalkId;
+        document.getElementById("location").value = "Sidewalk: " + sidewalkId;
         document.getElementById("sidewalkId").value = sidewalkId;
 
         // Optional: lock the field
