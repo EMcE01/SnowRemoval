@@ -24,6 +24,19 @@ document.addEventListener('DOMContentLoaded', function () {
         return "red";
     }
 
+    function getEstimatedCompletion(status, name) {
+        if (status !== "In Progress") return null;
+
+        const estimates = {
+            "West": "15 minutes",
+            "East": "20 minutes",
+            "North": "12 minutes",
+            "South": "18 minutes"
+        };
+
+        return estimates[name] || "about 20 minutes";
+    }
+
     // ✅ Load GeoJSON (ONLY map data now)
     fetch('../src/assets/sidewalks.geojson')
         .then(res => res.json())
@@ -39,12 +52,24 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
 
                 onEachFeature: function (feature, layer) {
+                    const name = feature.properties.name;
+                    const status = feature.properties.status;
+                    const eta = getEstimatedCompletion(status, name);
+
                     layer.bindPopup(
-                        feature.properties.name + " - " + feature.properties.status
+                        name + " - " + status + (eta ? `<br>ETA: ${eta}` : "")
                     );
 
+                    if (eta) {
+                        layer.on('mouseover', function () {
+                            layer.openPopup();
+                        });
+                        layer.on('mouseout', function () {
+                            layer.closePopup();
+                        });
+                    }
+
                     layer.on('click', function () {
-                        const name = feature.properties.name;
                         window.location.href = `report.html?sidewalk=${name}`;
                     });
                 }
